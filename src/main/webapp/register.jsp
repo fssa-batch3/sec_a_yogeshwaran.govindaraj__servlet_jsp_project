@@ -89,6 +89,7 @@ a:hover {
 <jsp:include page="header.jsp"></jsp:include>
 <h1>Register Page</h1>
     <form action="register" method="post">
+    
         <!-- Registration form fields go here -->
         <label>Name:</label>
         <input type="text" name="name" placeholder="name" required>
