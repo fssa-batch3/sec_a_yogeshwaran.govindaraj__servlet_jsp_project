@@ -29,7 +29,8 @@
 	
 %>
 
-<a href = "request.jsp"><button>Request</button><br><br></a>
+<a href = "request.jsp"><button> 
+Donor Details</button><br><br></a>
 
 
 <p>Logged In user: <%=loggedInEmail%> </p>

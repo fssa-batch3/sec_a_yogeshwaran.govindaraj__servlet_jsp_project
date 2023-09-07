@@ -84,13 +84,27 @@ br {
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <h1>Request Form</h1>
+
+<!-- error message function -->
+
+
+<%
+    String e = (String) request.getAttribute("ErrorMessage");
+    if (e != null) {
+%>
+        <span style="color: red;"><%= e %></span>
+<%
+    }
+%>
+
 	<form action="request" method="post">
 		
 		<label>Title:</label> <input type="text" name="title"
 			placeholder="Title" required> </br> 
 			<label>Description:</label> 
 			<input type="text" name="description" placeholder="Description" required>
-		</br> 
+			</br> 
+			
 		<label for="bloodgroup">Blood Group:</label> <select id="bloodgroup"
 			name="bloodgroup" required>
 			<option value="" disabled selected>Select your blood group</option>
