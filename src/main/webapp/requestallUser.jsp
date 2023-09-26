@@ -56,7 +56,7 @@
              if (requestList != null) {
                 for (Request req : requestList) {%> 
                 <tr>
-                    <td><%=req.gettitle()%></td>
+                    <td><%=req.getname()%></td>
                     <td><%=req.getdescription()%></td>
                     <td><%=req.getgroup()%></td>
                     <td><%=req.getdate()%></td>

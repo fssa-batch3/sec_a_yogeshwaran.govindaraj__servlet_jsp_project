@@ -15,8 +15,8 @@ import javax.servlet.http.HttpSession;
 
 import com.fssa.blood.DAO.exception.DAOException;
 import com.fssa.blood.model.Request;
-import com.fssa.blood.service.exception.ServicesException;
-import com.fssa.blood.services.RequestService;
+import com.fssa.blood.service.RequestService;
+import com.fssa.blood.service.exception.ServiceException;
 
 @WebServlet("/request")
 public class RequestServlet extends HttpServlet {
@@ -27,13 +27,13 @@ public class RequestServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		
 		
-		String title = request.getParameter("title");
+		String name = request.getParameter("name");
 		String description = request.getParameter("description");
 		String bloodgroup = request.getParameter("bloodgroup");
 		String date = request.getParameter("date");
 		
 		String email = (String) session.getAttribute("loggedInEmail");
-		
+		System.out.println(email);
 		Long number = Long.parseLong(request.getParameter("phone"));
 		
 		
@@ -44,18 +44,18 @@ public class RequestServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 	
 		
-		Request user1 = new Request(title, description, bloodgroup, date1, number, email);
+		Request user1 = new Request(name, description, bloodgroup, date1, number, email);
 		RequestService requestService = new RequestService();
-
+		System.out.println(user1);
 	
 			try {
 				if (requestService.create(user1)) {
 					out.println("Request is valid");
-					response.sendRedirect("ListAllRequestsServlet");
+					response.sendRedirect("pages/Donor Index.jsp");
 				} else {
 					out.println("Request is Invalid");
 				}
-			} catch (DAOException | ServicesException e) {
+			} catch (DAOException | ServiceException e) {
 				// TODO Auto-generated catch block
 				out.print(e.getMessage());
 				e.printStackTrace();

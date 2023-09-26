@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fssa.blood.DAO.exception.DAOException;
 import com.fssa.blood.model.*;
-import com.fssa.blood.services.*;
-import com.fssa.blood.service.exception.ServicesException;
+import com.fssa.blood.service.*;
+import com.fssa.blood.service.exception.ServiceException;
 
 /**
  * Servlet implementation class CreateRequest
@@ -29,7 +29,7 @@ public class CreateRequest extends HttpServlet {
 		RequestService RequestService = new RequestService();
 		try {
 			RequestService .create(request1);
-		} catch (ServicesException | DAOException e) {
+		} catch (ServiceException | DAOException e) {
 			e.printStackTrace();
 		
 		}

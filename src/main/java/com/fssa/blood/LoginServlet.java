@@ -1,6 +1,7 @@
 package com.fssa.blood;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -12,8 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fssa.blood.model.User;
-import com.fssa.blood.service.exception.ServicesException;
-import com.fssa.blood.services.UserServices;
+import com.fssa.blood.service.UserService;
+
+import com.fssa.blood.service.exception.ServiceException;
 
 
 /**
@@ -31,20 +33,23 @@ public class LoginServlet extends HttpServlet {
 		User user = new User(email,password);
 		
 		PrintWriter out = response.getWriter();
-		UserServices loginServices = new UserServices();
+		UserService loginServices = new UserService();
 		try {
 			
 			if(loginServices.login(user)) {
 				out.println("login success");
 				HttpSession session = request.getSession();
-				session.setAttribute("loggedInEmail", email);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
+				
+				User loggedUser = loginServices.getUser(email);
+			
+				session.setAttribute("loggedInEmail", loggedUser);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/Donor Index.jsp");
 				dispatcher.forward(request, response);
 				
 			}else {
 				out.println("login failer");
 			}
-		} catch (ServicesException e) {
+		} catch (ServiceException e) {
 			
 			e.printStackTrace();
 			out.println(e.getMessage());

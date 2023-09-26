@@ -4,6 +4,7 @@ import com.fssa.blood.DAO.RequestDAO;
 import com.fssa.blood.model.Request;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ListAllRequestsServlet")
+import org.json.JSONArray;
+
+@WebServlet("/RequestAllUserServlet")
 public class RequestAllUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -21,12 +24,12 @@ public class RequestAllUserServlet extends HttpServlet {
         try {
             RequestDAO requestDAO = new RequestDAO();
             List<Request> requestList = requestDAO.readrequest(); // Retrieve the list of requests from DAO
+            System.out.println(requestList);
+            JSONArray requestDetailsJson = new JSONArray(requestList);
+            PrintWriter out = response.getWriter();
+            out.println(requestDetailsJson.toString());
 
-            // Set the requestList attribute for the JSP
-            request.setAttribute("requestList", requestList);
 
-            // Forward the request to the JSP for rendering
-            request.getRequestDispatcher("/requestallUser.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             // Handle exceptions appropriately

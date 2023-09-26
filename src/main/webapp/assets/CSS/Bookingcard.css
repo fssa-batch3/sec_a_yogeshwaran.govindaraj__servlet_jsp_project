@@ -1,0 +1,52 @@
+/* Style the page title */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Style the card container */
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    background-color: #fff;
+}
+
+/* Style the bookinginfo container */
+.bookinginfo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style labels */
+
+
+/* Style paragraphs */
+p {
+       margin: 24px 0;
+       /* border: 1px solid #000; */
+}
+
+/* Style buttons */
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style buttons on hover */
+button:hover {
+    background-color: #0056b3;
+}
+/* 
+.{
+    font-size: 20px;
+} */
