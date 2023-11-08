@@ -2,50 +2,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
-    <link rel="stylesheet" href="../assets/CSS/Donor Register.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Page</title>
+<link rel="stylesheet" href="../assets/CSS/Donor Register.css">
 </head>
 
 <body>
-    <div class="fullpage">
-        <h1> Donor Register</h1>
-        <form id="form" action="/blood/register"  method="post">
-       
-            <!-- onsubmit="return validateForm()" -->
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
-            </div>
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <button type="submit">Register</button>
+	<div class="fullpage">
+		<h1>Donor Register</h1>
+		<form id="form" action="/blood/userRegister" method="post">
 
-            <p>Already you have Account ? <a class="login" href="./DonorLogin.jsp">Log In</a></p>
-        </form>
-    </div>
+			<!-- onsubmit="return validateForm()" -->
+			<div class="form-group">
+				<label for="name">Name:</label> <input type="text" id="name"
+					name="name" required>
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label> <input type="email" id="email"
+					name="email" required>
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label> <input type="password"
+					id="password" name="password" required pattern = "(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+			</div>
+			<div class="form-group">
+				<label for="confirmPassword">Confirm Password:</label> <input
+					type="password" id="confirmPassword" name="confirmPassword"
+					required pattern = "(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+			</div>
+			<div class="form-group">
+				<label for="address">Address:</label> <input type="text"
+					id="address" name="address" required>
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone:</label> <input type="tel" id="phone"
+					name="phone" required pattern="[6-9]{1}[0-9]{9}">
+			</div>
+			<button  type="submit">Register</button>
+
+		</form>
+		<p>
+			Already you have Account ? <a class="login" href="./DonorLogin.jsp">Log
+				In</a>
+		</p>
+
+	</div>
+	
+	<script>
+	document.getElementById('form').addEventListener('submit', function(event) {
+		  let password = document.getElementById('password').value;
+		  let confirmPassword = document.getElementById('confirmPassword').value;
+		  if (password !== confirmPassword) {
+		    alert('Passwords do not match. Please try again.');
+		    event.preventDefault(); // Prevent the form from submitting
+		  }
+		});
+	</script>
 
 
-    <!-- <script>
+	<!-- <script>
 
         let signUpform = document.getElementById("form");
         document.createElement("Donorregister");
@@ -105,7 +121,7 @@
 
     </script> -->
 
-    <!-- <script>
+	<!-- <script>
         let signUpform = document.getElementById("form");
         document.createElement("Donorregister");
         signUpform.addEventListener("submit", function (event) {
@@ -164,6 +180,6 @@
 
     </script> -->
 </body>
-<a href="./DonorLogin.html"></a>
+
 
 </html>

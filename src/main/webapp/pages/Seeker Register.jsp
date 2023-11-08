@@ -11,7 +11,9 @@
 <body>
     <div class="container">
         <h1> Hospital Register</h1>
-        <form id="form">
+        <form id="form" action="/blood/Seekerregister" method="post">
+        
+        
             <!-- onsubmit="return validateForm()" -->
             <div class="form-group">
                 <label for="name">Hospital Name:</label>
@@ -37,12 +39,12 @@
                 <label for="phone">Phone:</label>
                 <input type="tel" id="phone" name="phone" required>
             </div>
-            <button onclick="Submit()">Register</button>
+            <button type="submit">Register</button>
 
-            <p>Already you have Account ? <a class="login" href="./SeekerLogin.html">Log In</a></p>
+            <p>Already you have Account ? <a class="login" href="./SeekerLogin.jsp">Log In</a></p>
         </form>
     </div>
-
+<!-- 
     <script>
         let signUpform = document.getElementById("form");
         document.createElement("SeekerRegister");
@@ -99,7 +101,7 @@
 
             window.location.href = "./SeekerLogin.html";
         });
-    </script>
+    </script> -->
 
 </body>
 <a href="./SeekerLogin.html"></a>

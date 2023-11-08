@@ -65,8 +65,16 @@ button[disabled] {
     background-color: #ff6d00;
 }
 
+#saveButton{
+	background-color: green;
+}
+#logout-button{
+	background-color: red;
+}
+
+
 .image{
-       width: 82px;
+       width: 49px;
        border-radius: 300px;
        margin-left: -32px;
 }

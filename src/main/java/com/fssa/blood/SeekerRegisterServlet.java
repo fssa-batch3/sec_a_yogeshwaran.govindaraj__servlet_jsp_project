@@ -1,8 +1,6 @@
 package com.fssa.blood;
 
 import java.io.IOException;
-
-
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -11,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fssa.blood.model.User;
-import com.fssa.blood.service.UserService;
+import com.fssa.blood.model.Hospital;
+import com.fssa.blood.service.HospitalService;
 import com.fssa.blood.service.exception.ServiceException;
 import com.fssa.blood.validation.exception.InvalidUserException;
 
-@WebServlet("/userRegister")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/Seekerregister")
+public class SeekerRegisterServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -30,28 +28,26 @@ public class RegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
-		System.out.println(phone);
 		
-
-		User user1 = new User(name, email, password, address, phone);
-		UserService userService = new UserService();
-
+		
+		Hospital hospital = new Hospital(name, email, password, address, phone);
+		HospitalService hospitalService = new HospitalService();
+		
 		try {
-			if (userService.create(user1)) {
-				out.println("User is valid");
-				response.sendRedirect(request.getContextPath() + "/pages/DonorLogin.jsp");
-			} else {
-				out.println("User is Invalid");
+			if(hospitalService.create(hospital)) {
+				out.println("Hospital is valid");
+				response.sendRedirect(request.getContextPath() + "/pages/SeekerLogin.jsp");
+			}else {
+				out.println("Hospital is Invalid");
 			}
 		} catch (ServiceException | InvalidUserException e) {
 			e.printStackTrace();
 
 		}
-
-	}
+		}
 	
 	@Override
-protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	doPost(req,resp);
-}
-}
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req,resp);
+	}
+	}

@@ -13,21 +13,23 @@
 
 	<div class="profile">
 
-		<a href="./Donor Index.html"> <img class="image"
-			src="<%=request.getContextPath() %>/assets/image/arrow.jpg"></a>
+		<a href="<%= request.getContextPath() %>/pages/Donor Index.jsp"><img class="image"
+    src="<%= request.getContextPath() %>/assets/image/arrow.jpg"></a>
+
 		<h1>User Profile</h1>
 
 		<!-- Update servlet -->
 
 		<form id="profile-form" method="POST" action = "<%=request.getContextPath()%>/UpdateUserServlet">
-			<label for="name">Name:</label> <input type="text" id="name"
-				name="name" value="${sessionScope.loggedInEmail.name} " disabled><br>
+			<label for="name">Name:</label> 
+			<input type="text" id="name" name="name" value="${sessionScope.loggedInEmail.name} " disabled><br>
 
 			<label for="email">Email:</label> <input type="email" id="email"
 				name="email" disabled value="${sessionScope.loggedInEmail.email} "><br>
 
-			<label for="password" style="display: none">Password:</label> <input
-				type="password" style="display: none" id="password" name="password"
+			<label for="password" style="display: none">Password:</label> 
+			
+			<input type="password" style="display: none" id="password" name="password"
 				value="${sessionScope.loggedInEmail.password} "><br> <label
 				for="address">Address:</label> <input type="text" id="address"
 				name="address" disabled
@@ -40,7 +42,7 @@
 
 			<button type="button" onclick="edit()" id="editButton">Edit</button>
 			<button type="submit" id="saveButton">Save</button>
-			<button type="button" onclick="logout()" id="logout-button">Logout</button>
+			<a href = "<%=request.getContextPath()%>/LogoutServlet"><button type="button" onclick="logout()" id="logout-button">Logout</button></a>
 		</form>
 	</div>
 

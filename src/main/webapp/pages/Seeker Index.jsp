@@ -4,29 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/CSS/Seekerindex.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/CSS/Seekerindex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Home Page</title>
 </head>
 
 <body>
+
     <div class="header">
-        <h1 id="name" class="logo"></h1>
+        <h1 id="name" class="logo">Blood Bank</h1>
         <!-- <a href="#default" class="logo" id="name">Blood Bank</a> -->
         <div class="header-right">
             <a class="active" href="#home">Home</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-            <!-- <a href="./DonorList.html">Donor List</a> -->
-            <!-- <a href="./firsthome.html">Logout</a> -->
-            <a class="name" href="./DonorList.html">Donate List</a>
-            <a href="./Hospital Profile.html"><img src="../assets/image/profile.png" width="70px"></a>
+              <a href="#contact">Contact</a>
+            <!--<a href="#about">About</a>-->
+            <!-- <a href="./DonorList.jsp">Donor List</a> -->
+            <!-- <a href="./firsthome.jsp">Logout</a> -->
+            
+            
+            <a class="name" href="<%=request.getContextPath() %>/ListrequestServlet">Donate List</a>
+            
+            
+            <a href="<%=request.getContextPath() %>/pages/Hospital Profile.jsp"><img src="<%=request.getContextPath() %>/assets/image/profile.png" width="70px"></a>
         </div>
     </div>
 
-    <img class="image" src="../assets/image/seeker.png">
+    <img id ="home" class="image" src="<%=request.getContextPath() %>/assets/image/seeker.png">
 
-    <div class="foot">
+    <div  id = "contact" class="foot">
         <footer>
             <div class="container">
                 <div class="footer-content">

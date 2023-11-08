@@ -33,7 +33,7 @@ public class LogoutServlet extends HttpServlet {
 		}
 		
 		// Redirecting to login page since we have logged out
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("pages/firsthome.jsp");
 	}
 
 }

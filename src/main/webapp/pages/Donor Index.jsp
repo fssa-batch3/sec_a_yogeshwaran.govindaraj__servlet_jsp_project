@@ -15,22 +15,22 @@
         <div class="header-right">
             <a class="active" href="#home">Home</a>
             <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-            <a href="<%=request.getContextPath() %>/pages/Bookingcard.jsp">Booking Detail</a>
-           <!--  <a href="./firsthome.html">Logout</a>  -->
+             <a href="#about">About</a> 
+            <a href="<%=request.getContextPath() %>/pages/Bookingcard.jsp">History</a>
+           <!--  <a href="./firsthome.jsp">Logout</a>  -->
             <a class="name" href="<%=request.getContextPath() %>/pages/DonorDonating.jsp">Donate Here</a>
-            <a href="<%=request.getContextPath() %>/pages/profile.jsp"><img src="<%=request.getContextPath() %>/assets/image/profile.png" width="70px"></a>
+            <a class = "su" href="<%=request.getContextPath() %>/pages/profile.jsp"><img src="<%=request.getContextPath() %>/assets/image/profile.png" width="70px"></a>
         </div>
     </div>
 
-    <img class="image" src="<%=request.getContextPath() %>/assets/image/Benefits-of-blood-donation.jpg">
+    <img id = "home" class="image" src="<%=request.getContextPath() %>/assets/image/Donor1.jpg">
 
-    <div class="foot">
+    <div class="foot" id="contact">
         <footer>
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-logo">
-                        <h1>Blood Bank</h1>
+                        <h5>Blood Bank</h5>
                     </div>
                     <div class="footer-links">
                         <ul>
@@ -48,8 +48,6 @@
             </div>
         </footer>
     </div>
-
-
 
 
 

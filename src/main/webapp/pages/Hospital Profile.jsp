@@ -13,39 +13,39 @@
 
     <div class="profile">
 
-        <a href="./Seeker Index.html"> <img class="image" src="../assets/image/arrow.jpg"></a>
+        <a href="<%=request.getContextPath()%>/pages/Seeker Index.jsp"> <img class="image" src="<%=request.getContextPath() %>/assets/image/arrow.jpg"></a>
         <h1>Hospital Profile</h1>
 
 
-        <form id="profile-form">
+        <form id="profile-form" method="POST" action = "<%=request.getContextPath()%>/UpdateHospitalServlet">
             <label for="name">Hospital Name:</label>
-            <input type="text" id="name" name="name" disabled><br>
+            <input type="text" id="name" name="name" value="${sessionScope.loggedInEmailH.name} " disabled><br>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" disabled><br>
+            <input type="email" id="email" name="email" value="${sessionScope.loggedInEmailH.email} " disabled><br>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" disabled><br>
+            <input type="password" id="password" name="password" value="${sessionScope.loggedInEmailH.password} " disabled><br>
 
             <label for="address">Hospital Address:</label>
-            <input type="text" id="address" name="address" disabled><br>
+            <input type="text" id="address" name="address" value="${sessionScope.loggedInEmailH.address} " disabled><br>
 
             <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" disabled><br>
+            <input type="tel" id="phone" name="phone" value="${sessionScope.loggedInEmailH.phone} "disabled><br>
 
             <!-- <label for="address">Address:</label>
             <input type="text" id="address" name="address" disabled><br> -->
 
             <button type="button" onclick="edit()" id="editButton">Edit</button>
-            <button type="button" onclick="save()" id="saveButton">Save</button>
-            <button type="button" onclick="logout()" id="logout-button">Logout</button>
+			<button type="submit" id="saveButton">Save</button>
+			<a href = "<%=request.getContextPath()%>/LogoutServlet"><button type="button" onclick="logout()" id="logout-button">Logout</button></a>
         </form>
     </div>
 
     <script>
 
 
-        let donor = JSON.parse(localStorage.getItem("SeekerRegister"));
+       /* let donor = JSON.parse(localStorage.getItem("SeekerRegister"));
 
         let email = JSON.parse(localStorage.getItem("loginSeeker"));
 
@@ -61,7 +61,7 @@
         document.getElementById("phone").value = Donor.phone;
 
 
-        document.getElementById("editButton");
+        document.getElementById("editButton");*/
 
         function edit() {
 
@@ -84,7 +84,7 @@
 
         };
 
-        function save() {
+     /*   function save() {
 
             let name = document.getElementById("name").value;
             let email = document.getElementById("email").value;
@@ -127,7 +127,7 @@
 
         }
 
-
+	*/
     </script>
     <a href="./firsthome.html"></a>
 

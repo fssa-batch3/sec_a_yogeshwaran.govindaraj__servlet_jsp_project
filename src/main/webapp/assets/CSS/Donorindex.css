@@ -25,12 +25,7 @@ body{
     overflow-y: hidden;
 }
 
-img{
-  margin-top: -23px;
-  margin-left: 23px;
-border-radius: 96px;
-  
-}
+
 
 
 .card {
@@ -84,7 +79,7 @@ border-radius: 96px;
 
 .header a {
     float: left;
-    margin-left: 18px;
+    margin-left: 53px;
     color: black;
     text-align: center;
     padding: 12px;
@@ -124,32 +119,40 @@ border-radius: 96px;
 }
 
 .image{
-       margin-top: 113px;
-    margin-left: 32px;
-    width: 1215px;
-    height: 728px;
+      margin-top: 92px;
+    margin-left: -3px;
+    width: 1277px;
+    height: 600px;
 }
-
-
-footer {
-  background-color: lightblue;
-    color: #fff;
-    padding: 50px;
-    margin-top: 560px;
-    margin-left: -1255px;
-    width: 1188px;
+.su{
+	margin-top: -20px;
+   border-radius: 34px;
+   margin-right: 3px;
+}
+  
+  footer {
+      background-color: gray;
+    color: rgb(255, 255, 255);
+    padding: 83px;
+  margin-top: 392px;
+   margin-left: -1746px;
+   
 }
 
 
 .container {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    /* max-width: 1200px; */
+    margin: -22px auto;
+    /* padding: 0 20px; */
+    
+    width: 79%;
+    margin-left: 350px;
 }
+
 
 .footer-content {
     display: flex;
@@ -166,7 +169,7 @@ footer {
 .footer-links ul {
     list-style-type: none;
     padding: 0;
-    margin-left: 341px;
+    margin-left: 210px;
     font-size: 20px;
 }
 
@@ -181,7 +184,9 @@ footer {
 }
 
 .footer-info {
-    text-align: right;
+       text-align: right;
+       margin-top: -75px;
+    /* margin-left: 706px; */
 }
 
 .footer-info p {
@@ -216,4 +221,62 @@ footer {
     }
 }
 
-/* 
+h5 {
+    color: whitesmoke;
+    font-size: 30px;
+      margin-left: 19px;
+    margin-top: 20px;
+}
+/* Reset default margin and padding for the entire page */
+/* Reset default margin and padding for the entire page */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the footer container */
+.container {
+    background-color: #333;
+    color: #fff;
+   padding: 29px;
+}
+
+/* Style the footer content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the footer logo */
+.footer-logo {
+    font-size: 24px;
+    color: #FF5733; /* You can change this color */
+}
+
+/* Style the footer links */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #66b3cc; /* You can change this color */
+}
+
+/* Style the copyright text */
+.footer-info p {
+    text-align: center;
+   margin-left: 927px;
+    margin-top: 10px;
+    color: #999; /* You can change this color */
+}
+  
+
+

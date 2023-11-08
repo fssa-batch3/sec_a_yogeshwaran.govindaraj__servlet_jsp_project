@@ -19,23 +19,25 @@
             <a class="active" href="#home">Home</a>
             <a href="<%=request.getContextPath() %>/pages/Donor Register.jsp">Donor</a>
             <a href="<%=request.getContextPath() %>/pages/Seeker Register.jsp">Hospital</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            <a href="#about">About Us</a>
+             <a href="#contact">Contact</a>
         </div>
     </div>
-
-    <div>
-        <div class="first">
-            <img class="main" src="../assets/image/download.png">
+	<div class="first" id = "home">
+	 <img class="main" src="../assets/image/first.jpg">
+	   </div>
+   <!--  <div>
+        
+           
             <h1>SAVE BLOOD<BR>
                 <p>SAVE LIVES</p>
             </h1>
             <h2>A DROP OF BLOOD FOR LIFE</h2>
-            <h3>LET'S BE A BLOOD DONOR FOR GOOD</h3>
+            <!--  <h3>LET'S BE A BLOOD DONOR FOR GOOD</h3>-->
             <!-- <h4>A blood bag in time saves a life</h4> -->
-            <a href="./Donor Register.html"><button>Donor</button></a>
+          <!--    <a href="./Donor Register.html"><button>Donor</button></a>-->
 
-        </div>
+      
     </div>
     </div>
 
@@ -45,22 +47,22 @@
             <div class="card-container">
                 <div class="card">
                     <p>User Register</p>
-                    <p id="count" class="count">0</p>
+                    <p id="count" class="count">10</p>
                 </div>
 
                 <div class="card">
                     <p>Hospital Register</p>
-                    <p id="count1" class="count1">0</p>
+                    <p id="count1" class="count1">22</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="learn">
+    <div class="learn" id = "about">
         <h4>LEARN ABOUT DONATION</h4>
 
         <div class="learn1">
-            <img src="../assets/image/blood-donation-image001.png" width="600px" height="400px">
+            <img class = "blooddetail" src="../assets/image/Blooddetail.png" width="600px" height="400px">
 
             <p>Compatible Blood Type Donors</p>
 
@@ -124,7 +126,7 @@
         </div>
     </div>
 
-    <div class="foot">
+     <div class="foot" id="contact">
         <footer>
             <div class="container">
                 <div class="footer-content">

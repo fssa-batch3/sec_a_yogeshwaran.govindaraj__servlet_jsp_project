@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.fssa.blood.DAO.exception.DAOException;
 import com.fssa.blood.model.Request;
+import com.fssa.blood.model.User;
 import com.fssa.blood.service.RequestService;
 import com.fssa.blood.service.exception.ServiceException;
 
@@ -22,59 +23,53 @@ import com.fssa.blood.service.exception.ServiceException;
 public class RequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		HttpSession session = request.getSession(false);
-		
-		
+
 		String name = request.getParameter("name");
 		String description = request.getParameter("description");
 		String bloodgroup = request.getParameter("bloodgroup");
 		String date = request.getParameter("date");
-		
-		String email = (String) session.getAttribute("loggedInEmail");
-		System.out.println(email);
+
+		User user = (User) session.getAttribute("loggedInEmail");
+		String email = user.getEmail();
+
+		System.out.println("Check email" + email);
 		Long number = Long.parseLong(request.getParameter("phone"));
-		
-		
-		 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		 
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
 		LocalDate date1 = LocalDate.of(2002, 2, 23);
-		
+
 		PrintWriter out = response.getWriter();
-	
-		
+
 		Request user1 = new Request(name, description, bloodgroup, date1, number, email);
 		RequestService requestService = new RequestService();
 		System.out.println(user1);
-	
-			try {
-				if (requestService.create(user1)) {
-					out.println("Request is valid");
-					response.sendRedirect("pages/Donor Index.jsp");
-				} else {
-					out.println("Request is Invalid");
-				}
-			} catch (DAOException | ServiceException e) {
-				// TODO Auto-generated catch block
-				out.print(e.getMessage());
-				e.printStackTrace();
-				
-				//i am using error message 
-				request.setAttribute("ErrorMessage", e.getMessage());
-				RequestDispatcher dispatcher = request.getRequestDispatcher("request.jsp");
-				dispatcher.forward(request, response);
-		
-		} 
-		
+
+		try {
+			if (requestService.create(user1)) {
+				out.println("Request is valid");
+				response.sendRedirect("pages/Donor Index.jsp");
+			} else {
+				out.println("Request is Invalid");
+			}
+		} catch (DAOException | ServiceException e) {
+			// TODO Auto-generated catch block
+			out.print(e.getMessage());
+			e.printStackTrace();
+
+			// i am using error message
+			request.setAttribute("ErrorMessage", e.getMessage());
+			RequestDispatcher dispatcher = request.getRequestDispatcher("request.jsp");
+			dispatcher.forward(request, response);
+
+		}
 
 	}
 }
-
-		
-		
-	
-	
 
 //	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		HttpSession session = request.getSession(false);

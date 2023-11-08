@@ -38,7 +38,7 @@ body{
 .header a.logo {
       font-size: 25px;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 11px;
   font-family: cursive;
 margin-left: 70px;
 }
@@ -51,19 +51,19 @@ margin-left: 70px;
 
 
 .header a.active {
-  background-color: dodgerblue;
-  color: white;
+  background-color: lightblue;
+    color: black;
 }
 
 
 .header-right {
 
   float: right;
- margin-right: 189px;
+ margin-right: 73px;
   display: flex;
-  gap: 40px;
+  gap: 58px;
   border-radius: 13px;
-  margin-top: 20px;
+  margin-top: 9px;
   
 }
 
@@ -80,21 +80,29 @@ margin-left: 70px;
 }
 
 .main{
-    width: 640px;
-    height: 690px;
-    margin-top: 17px;
-    margin-left: 50px;
+   width: 1273px;
+    height: 623px;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
 h1{
-    margin-left: 662px;
-    margin-top: -622px;
+          margin-left: 645px;
+    margin-top: -299px;
     font-size: 60px;
 }
 
 h1 p{
     margin-left: 213px;
 }
+
+.blooddetail{
+	margin-left: 59px;
+    margin-top: 87px;
+    width: 377px;
+    height: 305px;
+}
+
 
 h2{
    margin-left: 737px;
@@ -105,7 +113,7 @@ h2{
 h3{
     margin-left: 670px;
      margin-top: 30px;
-     font-size: 30px;
+     margin-top: 182px;
 }
 
 h4{
@@ -128,9 +136,10 @@ button{
 
 .card-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: -48px;
+    margin-left: 2px;
   
 }
 
@@ -157,7 +166,7 @@ button{
 
 
 p{
-    margin-top: 47px;
+   margin-top: 51px;
     margin-left: 52px;
 }
 
@@ -172,11 +181,12 @@ p{
 }
 
 .learn p{
-    margin-left: 801px;
-    font-size: 30px;
-    background-color: lightcyan;
-    width: 440px;
+   margin-left: 721px;
+    font-size: 25px;
+    /* background-color: lightcyan; */
+    width: 426px;
     margin-top: -338px;
+    font-family: cursive;
 }
    
 
@@ -184,9 +194,9 @@ p{
 
 
 table {
-  width: 30%;
-    margin-left: 812px;
-    margin-top: 30px;
+  width: 50%;
+    margin-left: 592px;
+    margin-top: 18px;
     border-collapse: collapse;
     border: 1px solid #ccc;
 }
@@ -195,10 +205,12 @@ th, td {
   padding: 10px;
   text-align: center;
   border: 1px solid #ccc;
+  font-family: cursive;
 }
 
 th {
   background-color: #f0f0f0;
+      font-family: cursive;
 }
 
 tr:nth-child(even) {
@@ -212,7 +224,11 @@ tr:hover {
 .imagedown {
     font-size: 24px;
     font-family: cursive;
-    margin-top: -201px;
+    margin-top: -149px;
+    margin-left: 72px;
+    width: 396px;
+    /* margin-top: 10px;
+
     
     /* margin-top: 10px; */
 }
@@ -277,20 +293,23 @@ nav {
 .count{
   text-align: center;
   margin-left: -31px;
+      margin-top: 30px;
 }
 
 
 .count1{
   text-align: center;
   margin-left: -31px;
+      margin-top: 30px;
 }
 
 footer {
       background-color: gray;
     color: rgb(255, 255, 255);
     padding: 50px;
-    margin-top: -101px;
+   margin-top: -204px;
     margin-left: -1416px
+   
 }
 
 
@@ -302,7 +321,7 @@ footer {
     /* max-width: 1200px; */
     margin: -22px auto;
     /* padding: 0 20px; */
-    width: -47px;
+    width: 67%;
     margin-left: 860px;
 }
 
@@ -379,8 +398,56 @@ h5 {
        margin-left: 584px;
     margin-top: 20px;
 }
+/* Reset default margin and padding for the entire page */
+/* Reset default margin and padding for the entire page */
+body {
+    margin: 0;
+    padding: 0;
+}
 
-/* 
+/* Style the footer container */
+.container {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+/* Style the footer content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the footer logo */
+.footer-logo {
+    font-size: 24px;
+    color: #FF5733; /* You can change this color */
+}
+
+/* Style the footer links */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #66b3cc; /* You can change this color */
+}
+
+/* Style the copyright text */
+.footer-info p {
+    text-align: center;
+    margin-top: 10px;
+    color: #999; /* You can change this color */
+}
+
 
 
 

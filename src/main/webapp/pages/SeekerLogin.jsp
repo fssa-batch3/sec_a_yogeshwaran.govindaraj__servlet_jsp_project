@@ -13,7 +13,7 @@
     <body>
         <div class="container">
             <h1> Hospital Login</h1>
-            <form id="LoginForm">
+            <form id="LoginForm" action="<%=request.getContextPath() %>/SeekerLogin" method="post">
 
                 <div class="form-group">
                     <label for="email">Email:</label>
@@ -29,7 +29,7 @@
             </form>
         </div>
 
-        <script>
+       <!--   <script>
             const logIn = document.getElementById("LoginForm");
 
             logIn.addEventListener("submit", (event) => {
@@ -77,7 +77,7 @@
                 }
 
             });
-        </script>
+        </script>-->
     </body>
     <a href="./Seeker Index.html"></a>
 

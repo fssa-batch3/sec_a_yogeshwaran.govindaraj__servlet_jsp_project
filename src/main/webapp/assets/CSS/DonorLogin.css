@@ -8,7 +8,7 @@ body {
 .container {
     max-width: 400px;
     margin: 0 auto;
-    margin-top: 202px;
+    margin-top: 127px;
     padding: 71px;
     background-color: #fff;
     border-radius: 5px;
@@ -18,6 +18,10 @@ body {
 h1 {
     text-align: center;
     margin-top: -19px
+}
+
+.sign{
+	margin-top: 20px;
 }
 
 .form-group {
@@ -72,7 +76,16 @@ p{
     
 }
 
-a{
+span{
+	margin-left: 50px;
+}
+.forgot{
 	text-decoration: none;
-	margin-left: 114px;
+}
+
+.sign a{
+	text-decoration: none;
+	margin-left: 17px;
+	font-weight: 228px;
+	
 }

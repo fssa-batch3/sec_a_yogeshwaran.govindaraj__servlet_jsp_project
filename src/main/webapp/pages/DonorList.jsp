@@ -1,128 +1,84 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.fssa.blood.model.Request"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html>
-<html lang="en">
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Donor list</title>
-
+<html>
 <head>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
+<style>
+/* Style the table */
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
 
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: center;
-            padding: 8px;
-        }
+/* Style the table headings */
+.table th {
+	background-color: #f2f2f2;
+	text-align: left;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
+/* Style the table rows */
+.table td {
+	text-align: left;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
 
-        th {
-            background-color: green;
-            background-color: green;
-            text-align: center;
-            color: white;
-        }
+/* Add alternating row colors for better readability */
+.table tbody tr:nth-child(even) {
+	background-color: #f5f5f5;
+}
 
-        h2 {
-            text-align: center;
-            font-size: 47px;
-        }
-    </style>
+/* Hover effect on table rows */
+.table tbody tr:hover {
+	background-color: #e0e0e0;
+}
+</style>
 </head>
-
 <body>
-    <h2>Donor List</h2>
 
+	<%-- Retrieve the list of requests from the request attribute --%>
+	<%
+	List<Request> list = (List<Request>) request.getAttribute("User_LIST");
 
+	System.out.print("in jsp in 49 " + list.get(0).toString());
+	%>
 
+	 <a href = " <%=request.getContextPath()%>/pages/Seeker Index.jsp"><h1>User Booking List</h1></a>
 
-    <table id="dataTable">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Phone Number</th>
-                <th>Blood group</th>
-            </tr>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Bloodgroup</th>
+				<th>Date</th>
+				<th>Number</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%
+			for (Request account : list) {
+			%>
+			<tr>
+				<td><%=account.getname() %></td>
+				<td><%=account.getdescription() %></td>
+				<td><%=account.getgroup() %></td>
+				<td><%=account.getdate() %></td>
+				<td><%=account.getnumber() %></td>
+				<td><%=account.getemail() %></td>
+			</tr>
+			<%
+			}
+			%>
 
-            <!-- <tr class="values">
-                <td class="name">Alfreds Futterkiste</td>
-                <td class="email">Maria Anders</td>
-                <td class="address">Germany</td>
-                <td class="phone">6380843901</td>
-                <td class="bloodgroup">A+</td>
-
-            </tr> -->
-        </thead>
-        <tbody>
-            <!-- Table data rows will be populated here -->
-        </tbody>
-    </table>
-
-    <script>
-
-        let address = JSON.parse(localStorage.getItem("Donorregister"));
-        let list = JSON.parse(localStorage.getItem("DonorDate"));
-
-        for (let i = 0; i < list.length; i++) {
-
-
-            let tr;
-            let td1;
-            let td2;
-            let td3;
-            let td4;
-            let td5;
-
-            tr = document.createElement("tr");
-            tr.setAttribute("class", "values");
-
-            td1 = document.createElement("td");
-            td1.setAttribute("class", "name");
-            td1.innerText = list[i]["name"];
-            tr.append(td1);
-
-
-            td2 = document.createElement("td");
-            td2.setAttribute("class", "email");
-            td2.innerText = list[i]["email"];
-            tr.append(td2);
-
-            td3 = document.createElement("td");
-            td3.setAttribute("class", "address");
-            td3.innerText = address[i]["address"];
-            tr.append(td3);
-
-            td4 = document.createElement("td");
-            td4.setAttribute("class", "phone");
-            td4.innerText = list[i]["phone"];
-            tr.append(td4);
-
-            td5 = document.createElement("td");
-            td5.setAttribute("class", "bloodgroup");
-            td5.innerText = list[i]["bloodgroup"];
-            tr.append(td5);
-
-            document.querySelector("thead").append(tr);
-
-            // label = document.createElement("label");
-            // label.innerText = "Name:";
-            // div_bookinginfo.append(label);
-
-        }
-
-
-    </script>
-
+		</tbody>
+	</table>
 </body>
-
 </html>

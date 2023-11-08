@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1> Donor Login</h1>
-        <form id="LoginForm" action="../login" method="post">
+        <form id="LoginForm" action="../login" method="post" onsubmit="return check()">
         
 
             <div class="form-group">
@@ -18,67 +18,34 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required >
             </div>
             
             <a class = "forgot" href = "#">Forgot Password ?</a>
 
-            <button onclick="submit()">Login</button>
-
+            <button type="submit">Login</button>
+           
+			 
         </form>
+         <div class = "sign">
+          	<span>Not Register ?</span><a href = "<%=request.getContextPath()%>/pages/Donor Register.jsp">Create Your Account </a>
+            </div>
     </div>
+    
+    <script>
+function check() {
+    let password = document.getElementById('password').value;
+    
+    if (!/^.{8}$/.test(password)) {
+        alert('Wrong Password.');
+        return false;
+    }
+    return true;
+}
+</script>
 
-    <!--  <script>
-        const logIn = document.getElementById("LoginForm");
+   
 
-        logIn.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            let user_arr = [];
-
-            let defaultData = JSON.parse(localStorage.getItem("Donorregister"));
-            console.log(defaultData);
-
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
-
-            console.log(email, password);
-
-            //   [  { }, {}, {}, {}, {0}, {} ]
-
-            let isMatch = false;
-
-            for (let i = 0; i < defaultData.length; i++) {
-                if (
-                    email == defaultData[i].email &&
-                    password == defaultData[i].password
-                ) {
-                    isMatch = true;
-
-                    user_arr = email;
-                    window.localStorage.setItem("loginDonor", JSON.stringify(user_arr));
-
-                    break;
-
-                } else {
-                    isMatch = false;
-                }
-            }
-
-
-            if (isMatch === true) {
-                alert("Success fully Login")
-
-                window.location.href = "./Donor Index.html";
-            } else {
-                alert("failed")
-                // window.location.href ="";
-            }
-
-        });
-    </script>-->
-
-    <a href="./Donor Index.html"></a>
 </body>
 
 </html>

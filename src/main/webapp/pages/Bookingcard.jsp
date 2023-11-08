@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@page import="com.fssa.blood.service.RequestService"%>
+<%@page import="com.fssa.blood.model.Request"%>
+<%@page import="java.util.List"%>
+<%@page import="com.fssa.blood.model.User"%>
 <html lang="en">
 
 <head>
@@ -8,37 +12,42 @@
     <title>Donor Details</title>
 </head>
 
+	<%
+	User user = (User)request.getSession().getAttribute("loggedInEmail");
+	RequestService requestService = new RequestService();
 
+	Request requestDetails = (Request)requestService.getRequestsByEmail(user.getEmail());
 
+	%>
 
-<body>
-    <h1>Donor Details</h1>
+   <body>
+    <a href = "<%=request.getContextPath()%>/pages/Donor Index.jsp"><h1>Donor Details</h1></a>
+    <form id="profile-form" method="POST" action="<%=request.getContextPath()%>/Bookingcard">
+        <div class="card">
+            <div class="bookinginfo">
+                <label for="name" class="name">Name:</label><br>
+                <input type="text" id="name" name="name" value="<%=requestDetails==null ? "": requestDetails.getname()%>" disabled><br>
 
-    <!-- <div class="card">
-        <div class="bookinginfo">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" value="<%=requestDetails==null ? "": requestDetails.getdescription()%>" disabled>
 
-            <label class="name">Name:</label><br>
-            <p id="name">John Doe</p>
+                <label for="bloodgroup">Bloodgroup:</label>
+                <input type="text" id="bloodgroup" name="bloodgroup" value="<%=requestDetails==null ? "": requestDetails. getgroup()%>" disabled>
 
-            <label>Description:</label>
-            <p id="description">September 15, 2023</p>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" value="<%=requestDetails==null ? "": requestDetails. getdate()%>" disabled>
 
-            <label>Bloodgroup:</label>
-            <p id="bloodgroup">New York, USA</p>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" value="<%=requestDetails==null ? "": requestDetails. getnumber()%>"disabled><br>
+            </div>
 
-            <label>Date:</label>
-            <p id="date">4</p>
-
-            <label>Phone:</label>
-            <p id="phone">4</p>
+            <a id= "delete" href="<%= request.getContextPath() %>/DeleteRequestServlet?email=<%= user.getEmail() %>">Delete</a>
+            
         </div>
+       
+    </form>
 
-
-        <button type=" button" onclick="submit()" id="editButton">Edit</button>
-        <button type=" button" onclick="submit()" id="saveButton">Save</button>
-        <button type=" button" onclick="submit()" id="deleteButton">Delete</button> -->
-
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
     
     getAllAccounts();
@@ -57,8 +66,10 @@
     	    console.log(error);
     	  })
     }
+    
 
-        let donor = JSON.parse(localStorage.getItem("DonorDate"));
+
+   <!--  let donor = JSON.parse(localStorage.getItem("DonorDate"));
 
         let email = JSON.parse(localStorage.getItem("loginDonor"));
 
@@ -199,7 +210,7 @@
             const button = document.createElement("button");
             button.innerText = text;
             return button;
-        }
+        }   -->
     </script>
 </body>
 
